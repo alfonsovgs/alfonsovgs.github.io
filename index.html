@@ -1,58 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Prueba</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  <title>Prueba TI</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 </head>
 <body>
 
-	<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Product ID</th>
-      <th scope="col">Product Name</th>
-      <th scope="col">Unit Price</th>
-      <th scope="col">Unit in Stock</th>
-    </tr>
-  </thead>
-  <tbody id="result">
-   
-  </tbody>
-</table>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Product ID</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Unit Price</th>
+        <th scope="col">Unit in Stock</th>
+      </tr>
+    </thead>
 
-
+    <tbody id="result"></tbody>
+  </table>
 
 <script>
-
-	$(document).ready(function() {
-		
-		 $.ajax({
+  $(document).ready(function() {
+     $.ajax({
             type: 'GET',
             url: 'https://ticapacitacion.com/webapi/northwind/products',
             contentType: 'application/json',
             success: function (data) {
-            	let result = "";
-
+              let result = "";
                 $.each(data, function(i, element){
-                	result += '<tr>';
-	                result += `<td>${element.ProductID}</td>`;
-	                result += `<td>${element.ProductName}</td>`;
-	                result += `<td>${element.UnitPrice}</td>`;
-	                result += `<td>${element.UnitsInStock}</td>`;
-	                result += '</tr>';
+                  result += '<tr>';
+                  result += `<td>${element.ProductID}</td>`;
+                  result += `<td>${element.ProductName}</td>`;
+                  result += `<td>${element.UnitPrice}</td>`;
+                  result += `<td>${element.UnitsInStock}</td>`;
+                  result += '</tr>';
                 });
-
                 $("#result").html(result);
             }
         });
-
-	});
-	
+  });
 </script>
-
 
 </body>
 </html>
