@@ -25,8 +25,8 @@
 <script>
   $(document).ready(function() {
      $.ajax({
-            type: 'GET',
-            url: 'https://ticapacitacion.com/webapi/northwind/products',
+            type: 'HTTPGET',
+            url: 'https://ticapacitacion.com/webapi/northwind/HttpGetVerb/all',
             contentType: 'application/json',
             success: function (data) {
               let result = "";
